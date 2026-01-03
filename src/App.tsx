@@ -4,6 +4,7 @@ import type { User } from 'firebase/auth';
 import { auth } from './services/firebase';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import './App.css';
 
 function App() {
     const [user, setUser] = useState<User | null>(null);
@@ -21,16 +22,7 @@ function App() {
     }, []);
 
     if (loading) {
-        return (
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: '100vh'
-            }}>
-                Loading...
-            </div>
-        );
+        return <div className="app-loading">Loading...</div>;
     }
 
     return user ? <Home user={user} /> : <Login />;

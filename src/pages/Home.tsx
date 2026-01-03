@@ -1,5 +1,7 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../services/firebase';
+import VehicleScheduler from '../components/VehicleScheduler';
+import './Home.css';
 
 interface HomeProps {
     user: {
@@ -19,13 +21,8 @@ function Home({ user }: HomeProps) {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '20px'
-            }}>
+        <div className="home-container">
+            <div className="home-header">
                 <div>
                     <h1>Vehicle Scheduler</h1>
                     <p>Welcome, {user.displayName}!</p>
@@ -33,15 +30,7 @@ function Home({ user }: HomeProps) {
                 <button onClick={handleSignOut}>Sign Out</button>
             </div>
 
-            <div style={{
-                padding: '40px',
-                border: '2px dashed #ccc',
-                borderRadius: '8px',
-                textAlign: 'center'
-            }}>
-                <h2>🚗 Booking System Coming Soon</h2>
-                <p>This is where you'll see the vehicle calendar</p>
-            </div>
+            <VehicleScheduler />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../services/firebase';
+import './Login.css';
 
 function Login() {
     const handleGoogleSignIn = async () => {
@@ -13,27 +14,12 @@ function Login() {
     };
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '100vh',
-            gap: '20px'
-        }}>
-            <h1>Vehicle Scheduler</h1>
+        <div className="login-container">
+            <h1>🚗 Vehicle Scheduler</h1>
             <p>Sign in to book your family vehicles</p>
             <button
+                className="google-signin-button"
                 onClick={handleGoogleSignIn}
-                style={{
-                    padding: '12px 24px',
-                    fontSize: '16px',
-                    backgroundColor: '#4285f4',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer'
-                }}
             >
                 Sign in with Google
             </button>
